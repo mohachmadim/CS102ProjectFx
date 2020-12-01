@@ -5,7 +5,7 @@ import java.util.*;
 public class WorkoutClass{
 	public WeeklyCalender workoutSchedule = new WeeklyCalender();//instead of creating a new weeklySchedule variable here all classes use the Weekly Calender class to reduce code redundancy --> delete this comment
 	//public boolean[][] weeklySchedule = new boolean[7][72];  --> delete this comment
-	public Member[] courseMembers;
+	public List<Member> courseMembers = new ArrayList<Member>();
     public String className;
     public String description;
     public LocalDate startDate;
@@ -24,9 +24,7 @@ public class WorkoutClass{
 		this.coach = coach;
 	}
     
-    /*
-     * function to copy the index from the constructor to filled slot index
-     */
+    // function to copy the index from the constructor to filled slot index
     
     public void copyList(List<int[]> copyThis, List<int[]> emptyList) {
 
@@ -34,6 +32,16 @@ public class WorkoutClass{
     		emptyList.add(element);
     	}
     }
+    
+    //you can remake the schedule with an index of the slots you want
+    public void updateClassSchedule(List<int[]> index){
+    	this.workoutSchedule.resetCalender();
+    	for (int[] address : index) {
+    		this.workoutSchedule.WeeklySchedule[address[0]][address[1]] = true;
+    	}
+    }
+    
+    //
     
 
     /*public void resetCalender() {
@@ -44,11 +52,6 @@ public class WorkoutClass{
     	}
     }*/
     
-    public void updateClassSchedule(List<int[]> index){
-    	this.workoutSchedule.resetCalender();
-    	for (int[] address : index) {
-    		this.workoutSchedule.WeeklySchedule[address[0]][address[1]] = true;
-    	}
-    }
+
     
 }
