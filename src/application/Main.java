@@ -179,6 +179,8 @@ public class Main extends Application {
 		 * each coach can have a max of 3 classes? we must instantiate this variable before making
 		 * the coach and we cannot fill it until we make the workout class but we cant make the workout 
 		 * class until we make the coach... it's a chicken and egg problem
+		 * 
+		 * 
 		*/
 		Coach aliG = new Coach("Ali", "G", LocalDate.parse("2095-12-31"), "alig@gmail.com", LocalDate.parse("2019-12-31"), LocalDate.parse("2020-12-31"), "yoga instructor", 500.0, aliGClasses);
 		
