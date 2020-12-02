@@ -1,20 +1,23 @@
 package application;
 
+import java.io.Serializable;
 import java.time.*;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 
-public class Member extends Person {
+public class Member extends Person implements Serializable{
+	
+	private static final long serialVersionUID = 1L;
 
-	private int type;
-	private double fee;
+	private int type;//1 is student, 0 is regular
+	private double fee;//monthly
 	public static double oneMonthRate = 100;
 	public static double threeMonthRate = 95;
 	public static double sixMonthRate = 90;
 	public static double yearlyRate = 80;
 	public static double studentDiscount = 0.9;// for now.(10%)
-	public double discount;
+	public double discount=0;
 	//public WorkoutClass[] registeredClasses = new ;
 	public int months;
 	//public WeeklyCalender memberSchedule;
@@ -132,6 +135,14 @@ public class Member extends Person {
 		this.fee = fees;
 	}
 	
+	
+	public String toString()
+    {
+        
+		return super.toString() + "Type: " + this.type +  ",  Monthly Fee: " + this.fee + ", Months:  " + this.months;
+	
+    }
+
 	
 	/*
 
