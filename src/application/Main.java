@@ -341,7 +341,7 @@ public class Main extends Application {
 		    
 		    
 			
-			/******************************************** Creating scenes and adding the pages to them then starting the stage ********************************************/
+			/******************************************** Creating scenes, scene navigation, adding pages to scenes, and starting stage ********************************************/
 
 		    
 		    //Creating a scene objects where we will put our layout for each scene
@@ -357,12 +357,58 @@ public class Main extends Application {
 			//linking the CSS stylesheet to this scene
 			homeScene.getStylesheets().add(getClass().getResource("application.css").toExternalForm());
 			
+			/*
+			 *  This is the navigation for the program: we are using lamda expressions to quickly implement set on action method by giving it an event handler for the buttons
+			 *  setOnAction(EventHandler<ActionEvent> arg0) is a method that has an eventHandler interface as its argument. By using lamda expression we can write in one line
+			 *  lamda expressions are used when you just need a quick function that just has one line to execute
+			 *  the e represents the handle function's parameter event
+			 *  http://www.learningaboutelectronics.com/Articles/How-to-create-multiple-scenes-and-switch-between-scenes-in-JavaFX.php 
+			 */
 			newMember.setOnAction(e -> primaryStage.setScene(newMemberScene));
 			newStaff.setOnAction(e -> primaryStage.setScene(newStaffScene));
 			newClass.setOnAction(e -> primaryStage.setScene(newClassScene));
 			newCoach.setOnAction(e -> primaryStage.setScene(newCoachScene));
 			memberView.setOnAction(e -> primaryStage.setScene(memberViewScene));
 			staffView.setOnAction(e -> primaryStage.setScene(staffViewScene));
+			newMember_backButton.setOnAction(e -> primaryStage.setScene(homeScene));
+			/*
+			 * More explanation:
+			 *  
+			 *  if we don't use lambda we have to do something like this: 
+			 *  
+			 *  newMember.setOnMouseClicked((new EventHandler<MouseEvent>() {  // EventHandler is an interface that has an abstract handle method
+			 *       public void handle(MouseEvent event) {                    // we are implementing it anonymously here, and overriding the handle method
+			 *           primaryStage.setScene(newMemberScene); 
+		     *       } 
+		     *  }));   
+		     *  
+		     *  explain anonymous implementation:
+		     *  lets say we have a class A which has a function in it that prints "hello world"
+		     *  now lets say we create an object of a and want to use this method to print "bye bye world". well normaly we need to change the method.
+		     *  but what if we want to keep this class intact? what can we do if we want to just use this method differently just once?
+		     *  well we can create a new class B that extends A and overrides that method. but this seems wasteful to create w whole new class just for this
+		     *  so instead we create an anonymous class like so
+		     *  A objA = new A(){
+		     *  	public void print(){ system.out.print("bye bye world");}
+		     *  };
+		     *  
+		     *  this is equivalent to creating a new class B that extends A and overrides the print method then creating a B object (except its much shorter and you dont create a whole new class):
+		     *  class B{
+		     *  	public void print(){ system.out.print("bye bye world");}
+		     *  }
+		     *  B objA = new B();
+		     *  
+		     *  now lambda makes our lives even easier by allowing us to do a similar procedure for anonymous implementation of interfaces but very quickly:
+		     *  
+		     *   A interfaceA = () -> {System.out.print("bye bye world")};
+		     *   
+		     *   https://www.youtube.com/watch?v=lIXs4Y8sJCk
+		     *   https://www.youtube.com/watch?v=V7yVbG9_xkM
+		     *   
+		     *  
+		     * 
+			 */
+			
 			
 			
 			//Setting title to the Stage 
