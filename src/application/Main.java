@@ -43,7 +43,7 @@ public class Main extends Application {
 	public void start(Stage primaryStage) {
 		try {
 		    //Creating scene objects without initializing where we will put our different layouts
-			Scene homeScene, newMemberScene, newStaffScene, newClassScene, newCoachScene, memberViewScene, staffViewScene;
+			Scene homeScene, newMemberScene, newStaffScene, newClassScene, newCoachScene, memberViewScene, staffViewScene, workoutClassViewScene;
 			
 			/******************************************** creating the nodes which will be added to each page(layout)  ********************************************/
 
@@ -56,27 +56,31 @@ public class Main extends Application {
 												 // If we created our nodes with fxml instead of java code we wouldn't have to do this tedious task but, I'm just making this up as I go along and learning new things so ... XD
 			Button newMember = new Button("Create New Member");
 			newMember.getStyleClass().add("button");
-			newMember.setId("newMember"); 
+			newMember.setId("newMemberButton"); 
 			
 			Button newStaff = new Button("Create New Staff");
 			newStaff.getStyleClass().add("button");
-			newStaff.setId("newStaff");   
+			newStaff.setId("newStaffButton");   
 			
 			Button newClass = new Button("Create New Class");
 			newClass.getStyleClass().add("button");
-			newClass.setId("newClass");
+			newClass.setId("newClassButton");
 			
 			Button newCoach = new Button("Create New Coach");
 			newCoach.getStyleClass().add("button");
-			newCoach.setId("newCoach");      
+			newCoach.setId("newCoachButton");      
 			
 			Button memberView = new Button("Member View");
 			memberView.getStyleClass().add("button");
-			memberView.setId("memberView");      
+			memberView.setId("memberViewButton");      
 			
 			Button staffView = new Button("Staff View");
 			staffView.getStyleClass().add("button");
-			staffView.setId("staffView");          
+			staffView.setId("staffViewButton");   
+			
+			Button classView = new Button("CLass View");
+			staffView.getStyleClass().add("button");
+			staffView.setId("classViewButton");
 			
 			/*****New Member Page*****/
 			
@@ -174,16 +178,14 @@ public class Main extends Application {
 			GridPane homePage = new GridPane();
 			GridPane newMemberPage = new GridPane();
 			GridPane newStaffPage = new GridPane();
-			
 			GridPane newCoachPage = new GridPane();
 			GridPane staffViewPage = new GridPane();
 			
 			//we will be creating the member view page and the workout class page using scene builder
-			GridPane memberViewPage = new GridPane();
-			GridPane workoutClassPage = new GridPane();
-			GridPane newClassPage = new GridPane();
-			BorderPane root = (BorderPane)FXMLLoader.load(getClass().getResource("Sample.fxml"));
-			BorderPane root = (BorderPane)FXMLLoader.load(getClass().getResource("Sample.fxml"));
+			BorderPane memberViewPage = (BorderPane)FXMLLoader.load(getClass().getResource("memberViewPage.fxml"));
+			BorderPane workoutClassPage = (BorderPane)FXMLLoader.load(getClass().getResource("workoutClassPage.fxml"));
+			BorderPane newClassPage = (BorderPane)FXMLLoader.load(getClass().getResource("newClassPage.fxml"));
+			
 			
 			
 			/*****Home Page Layout Config*****/
@@ -211,12 +213,13 @@ public class Main extends Application {
 		    newStaffPage.setAlignment(Pos.CENTER);  
 		    
 		    /*****New Class Page Layout Config*****/
+		    /*
 		    newClassPage.setMinSize(400, 400);      
 		    newClassPage.setPadding(new Insets(10));
 		    newClassPage.setVgap(50);               
 		    newClassPage.setHgap(50);               
 		    newClassPage.setAlignment(Pos.CENTER);  
-		    
+		    */
 		    /*****New Coach Page Layout Config*****/
 		    newCoachPage.setMinSize(400, 400);      
 		    newCoachPage.setPadding(new Insets(10));
@@ -225,11 +228,13 @@ public class Main extends Application {
 		    newCoachPage.setAlignment(Pos.CENTER);  
 		    
 		    /*****Member View Page Layout Config*****/
+		    /*
 		    memberViewPage.setMinSize(400, 400);      
 		    memberViewPage.setPadding(new Insets(10));
 		    memberViewPage.setVgap(50);               
 		    memberViewPage.setHgap(50);               
 		    memberViewPage.setAlignment(Pos.CENTER);  
+		    */
 		    
 		    /*****Staff View Page Layout Config*****/
 		    staffViewPage.setMinSize(400, 400);      
@@ -380,6 +385,7 @@ public class Main extends Application {
 			newCoachScene = new Scene(newCoachPage,1280,720);
 			memberViewScene = new Scene(memberViewPage,1280,720);
 			staffViewScene = new Scene(staffViewPage,1280,720);
+			workoutClassViewScene = new Scene(workoutClassPage,1280,720);
 			
 			
 			
@@ -392,6 +398,7 @@ public class Main extends Application {
 			newCoachScene.getStylesheets().add(getClass().getResource("application.css").toExternalForm());
 			memberViewScene.getStylesheets().add(getClass().getResource("application.css").toExternalForm());
 			staffViewScene.getStylesheets().add(getClass().getResource("application.css").toExternalForm());
+			workoutClassViewScene.getStylesheets().add(getClass().getResource("application.css").toExternalForm());
 			
 			/*
 			 *  This is the navigation for the program: we are using lamda expressions to quickly implement set on action method by giving it an event handler for the buttons
@@ -406,6 +413,7 @@ public class Main extends Application {
 			newCoach.setOnAction(e -> primaryStage.setScene(newCoachScene));
 			memberView.setOnAction(e -> primaryStage.setScene(memberViewScene));
 			staffView.setOnAction(e -> primaryStage.setScene(staffViewScene));
+			classView.setOnAction(e -> primaryStage.setScene(workoutClassViewScene));
 			newMember_backButton.setOnAction(e -> primaryStage.setScene(homeScene));
 			/*
 			 * More explanation:
