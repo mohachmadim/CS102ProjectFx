@@ -16,6 +16,7 @@ import java.util.Date;
 import javafx.application.Application;
 import javafx.collections.ObservableList;
 import javafx.event.EventHandler;
+import javafx.fxml.FXMLLoader;
 import javafx.geometry.Insets;
 import javafx.geometry.Orientation;
 import javafx.geometry.Pos;
@@ -173,10 +174,17 @@ public class Main extends Application {
 			GridPane homePage = new GridPane();
 			GridPane newMemberPage = new GridPane();
 			GridPane newStaffPage = new GridPane();
-			GridPane newClassPage = new GridPane();
+			
 			GridPane newCoachPage = new GridPane();
-			GridPane memberViewPage = new GridPane();
 			GridPane staffViewPage = new GridPane();
+			
+			//we will be creating the member view page and the workout class page using scene builder
+			GridPane memberViewPage = new GridPane();
+			GridPane workoutClassPage = new GridPane();
+			GridPane newClassPage = new GridPane();
+			BorderPane root = (BorderPane)FXMLLoader.load(getClass().getResource("Sample.fxml"));
+			BorderPane root = (BorderPane)FXMLLoader.load(getClass().getResource("Sample.fxml"));
+			
 			
 			/*****Home Page Layout Config*****/
 		    //Setting size for the pane  
@@ -372,6 +380,8 @@ public class Main extends Application {
 			newCoachScene = new Scene(newCoachPage,1280,720);
 			memberViewScene = new Scene(memberViewPage,1280,720);
 			staffViewScene = new Scene(staffViewPage,1280,720);
+			
+			
 			
 			
 			//linking the CSS stylesheet to this scene
