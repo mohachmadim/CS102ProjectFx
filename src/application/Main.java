@@ -135,6 +135,26 @@ public class Main extends Application {
 		    newMember_backButton.setId("newMember_backButton");
 		    
 		   
+		    /*****Member View Page*****/
+		    
+		    TextField memberView_fullNameTxtF = new TextField();
+		    Button memberView_findMemberButton = new Button("Find Member");
+		    Text memberView_firstNameText = new Text("First Name:");
+		    Text memberView_memberFnText = new Text();
+		    Text memberView_lastNameText = new Text("Last Name:");
+		    Text memberView_memberLnText = new Text();
+		    Text memberView_dobText = new Text("DOB:");
+		    Text memberView_memberDobText = new Text();
+		    Text memberView_emailText = new Text("Email:");
+		    Text memberView_memberEmailText = new Text();
+		    Text memberView_startDateText = new Text("Start Date:");
+		    Text memberView_memberSDText = new Text();
+		    Text memberView_endDateText = new Text("End Date:");
+		    Text memberView_memberEDText = new Text("End Date:");
+		    Text memberView_typeText = new Text("Membership Type:");
+		    Text memberView_monthsText = new Text("Months:");
+		    Text memberView_feesText = new Text("Monthly Fees:");
+		    
 		    
 			/*
 			TextField firstName = new TextField();
@@ -356,6 +376,12 @@ public class Main extends Application {
 			
 			//linking the CSS stylesheet to this scene
 			homeScene.getStylesheets().add(getClass().getResource("application.css").toExternalForm());
+			newMemberScene.getStylesheets().add(getClass().getResource("application.css").toExternalForm());
+			newStaffScene.getStylesheets().add(getClass().getResource("application.css").toExternalForm());
+			newClassScene.getStylesheets().add(getClass().getResource("application.css").toExternalForm());
+			newCoachScene.getStylesheets().add(getClass().getResource("application.css").toExternalForm());
+			memberViewScene.getStylesheets().add(getClass().getResource("application.css").toExternalForm());
+			staffViewScene.getStylesheets().add(getClass().getResource("application.css").toExternalForm());
 			
 			/*
 			 *  This is the navigation for the program: we are using lamda expressions to quickly implement set on action method by giving it an event handler for the buttons
