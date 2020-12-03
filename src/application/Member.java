@@ -24,6 +24,11 @@ public class Member extends Person implements Serializable{
 	//public List<int[]> filledSlotsIndex = new ArrayList<int[]>(); // {[1,0], [1,1], ...} has the addresses that contain
 																	// true
 
+	public Member() {
+		super();
+	}
+	
+	
 	public Member(String fn, String ln, LocalDate dob, String email, LocalDate startDate, LocalDate endDate, int type, int months) {
 		// this constructor is if the user inputs months start date and end date
 

@@ -2,8 +2,9 @@ package application;
 
 import java.io.File;
 import java.io.FileInputStream;
-import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
+import java.io.ObjectOutputStream;
+import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.io.ObjectInputStream;
 import java.io.ObjectOutputStream;
@@ -84,6 +85,8 @@ public class Main extends Application {
 			
 			/*****New Member Page*****/
 			
+			
+			
 			//creating the TextInputs, Buttons and Text Fields for the newMember Page (layout)
 			
 			//Text inputs for the name and email
@@ -140,25 +143,7 @@ public class Main extends Application {
 		    newMember_backButton.setId("newMember_backButton");
 		    
 		   
-		    /*****Member View Page*****/
-		    
-		    TextField memberView_fullNameTxtF = new TextField();
-		    Button memberView_findMemberButton = new Button("Find Member");
-		    Text memberView_firstNameText = new Text("First Name:");
-		    Text memberView_memberFnText = new Text();
-		    Text memberView_lastNameText = new Text("Last Name:");
-		    Text memberView_memberLnText = new Text();
-		    Text memberView_dobText = new Text("DOB:");
-		    Text memberView_memberDobText = new Text();
-		    Text memberView_emailText = new Text("Email:");
-		    Text memberView_memberEmailText = new Text();
-		    Text memberView_startDateText = new Text("Start Date:");
-		    Text memberView_memberSDText = new Text();
-		    Text memberView_endDateText = new Text("End Date:");
-		    Text memberView_memberEDText = new Text("End Date:");
-		    Text memberView_typeText = new Text("Membership Type:");
-		    Text memberView_monthsText = new Text("Months:");
-		    Text memberView_feesText = new Text("Monthly Fees:");
+		   
 		    
 		    
 			/*
@@ -315,7 +300,7 @@ public class Main extends Application {
 		        		 
 		        		 //create a file output stream and give it a directory. replace all uses regex to remove all spaces. 
 		        		 //https://knpcode.com/java/java-basics/remove-spaces-from-string-java-trim-strip/
-		        		 String fileName = (M1.getfName() + M1.getlName() + ".txt").replaceAll("\\s+", "");
+		        		 String fileName = (M1.getfName() + M1.getlName() + ".ser").replaceAll("\\s+", "");
 		        		 FileOutputStream f = new FileOutputStream(new File("output/members/" + fileName));
 		        		 //create an object output stream and give it a file output stream
 		        		 ObjectOutputStream o = new ObjectOutputStream(f);
@@ -331,6 +316,9 @@ public class Main extends Application {
 		                 
 		                 /*
 		                  * When reading the files we will do something like this
+		                  * We must make sure that the object is serialiazable. this means all its properties and its super classes are serializable
+		                  * https://www.tutorialspoint.com/java/java_serialization.htm
+		                  * https://docs.oracle.com/javase/8/docs/api/java/io/InvalidClassException.html
 		                  * 
 		                  * FileInputStream fi = new FileInputStream(new File("myObjects.txt"));
 		                  * ObjectInputStream oi = new ObjectInputStream(fi);
@@ -381,12 +369,15 @@ public class Main extends Application {
 			homeScene = new Scene(homePage,1280,720);
 			newMemberScene = new Scene(newMemberPage,1280,720);
 			newStaffScene = new Scene(newStaffPage,1280,720);
-			newClassScene = new Scene(newClassPage,1280,720);
-			newCoachScene = new Scene(newCoachPage,1280,720);
-			memberViewScene = new Scene(memberViewPage,1280,720);
-			staffViewScene = new Scene(staffViewPage,1280,720);
-			workoutClassViewScene = new Scene(workoutClassPage,1280,720);
 			
+			newCoachScene = new Scene(newCoachPage,1280,720);
+			
+			staffViewScene = new Scene(staffViewPage,1280,720);
+			
+			
+			workoutClassViewScene = new Scene(workoutClassPage);
+			newClassScene = new Scene(newClassPage);
+			memberViewScene = new Scene(memberViewPage);
 			
 			
 			

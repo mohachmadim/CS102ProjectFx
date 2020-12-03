@@ -17,6 +17,7 @@
         <columnConstraints>
           <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
           <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+            <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
         </columnConstraints>
         <rowConstraints>
           <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
@@ -40,23 +41,37 @@
             <Label styleClass="Text" stylesheets="@application.css" text="Months:" GridPane.rowIndex="5" />
             <Label styleClass="Text" stylesheets="@application.css" text="Monthly Fees:" GridPane.rowIndex="6" />
             <Label styleClass="Text" stylesheets="@application.css" text="Type:" GridPane.rowIndex="7" />
-            <Label styleClass="Text" stylesheets="@application.css" GridPane.columnIndex="1" />
-            <Label styleClass="Text" stylesheets="@application.css" GridPane.columnIndex="1" GridPane.rowIndex="1" />
-            <Label styleClass="Text" stylesheets="@application.css" GridPane.columnIndex="1" GridPane.rowIndex="2" />
-            <Label styleClass="Text" stylesheets="@application.css" GridPane.columnIndex="1" GridPane.rowIndex="3" />
-            <Label styleClass="Text" stylesheets="@application.css" GridPane.columnIndex="1" GridPane.rowIndex="7" />
-            <Label styleClass="Text" stylesheets="@application.css" GridPane.columnIndex="1" GridPane.rowIndex="6" />
-            <Label styleClass="Text" stylesheets="@application.css" GridPane.columnIndex="1" GridPane.rowIndex="5" />
-            <Label styleClass="Text" stylesheets="@application.css" GridPane.columnIndex="1" GridPane.rowIndex="4" />
+            <Label fx:id="memberView_memberFnText" styleClass="Text" stylesheets="@application.css" GridPane.columnIndex="1" />
+            <Label fx:id="memberView_memberLnText" styleClass="Text" stylesheets="@application.css" GridPane.columnIndex="1" GridPane.rowIndex="1" />
+            <Label fx:id="memberView_memberDobText" styleClass="Text" stylesheets="@application.css" GridPane.columnIndex="1" GridPane.rowIndex="2" />
+            <Label fx:id="memberView_memberSDText" styleClass="Text" stylesheets="@application.css" GridPane.columnIndex="1" GridPane.rowIndex="3" />
+            <Label fx:id="memberView_memberTypeText" styleClass="Text" stylesheets="@application.css" GridPane.columnIndex="1" GridPane.rowIndex="7" />
+            <Label fx:id="memberView_memberFeesText" styleClass="Text" stylesheets="@application.css" GridPane.columnIndex="1" GridPane.rowIndex="6" />
+            <Label fx:id="memberView_membermonthsText" styleClass="Text" stylesheets="@application.css" GridPane.columnIndex="1" GridPane.rowIndex="5" />
+            <Label fx:id="memberView_memberEDText" styleClass="Text" stylesheets="@application.css" GridPane.columnIndex="1" GridPane.rowIndex="4" />
+            <TextField GridPane.columnIndex="2" />
+            <TextField GridPane.columnIndex="2" GridPane.rowIndex="1" />
+            <TextField GridPane.columnIndex="2" GridPane.rowIndex="2" />
+            <TextField GridPane.columnIndex="2" GridPane.rowIndex="3" />
+            <TextField GridPane.columnIndex="2" GridPane.rowIndex="4" />
+            <TextField GridPane.columnIndex="2" GridPane.rowIndex="5" />
+            <TextField GridPane.columnIndex="2" GridPane.rowIndex="6" />
+            <TextField GridPane.columnIndex="2" GridPane.rowIndex="7" />
          </children>
       </GridPane>
    </center>
    <top>
-      <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0" spacing="10.0" BorderPane.alignment="CENTER">
+      <HBox alignment="CENTER" prefHeight="100.0" prefWidth="380.0" spacing="40.0" BorderPane.alignment="CENTER">
          <children>
-            <TextField />
-            <Button mnemonicParsing="false" text="Button" />
+            <TextField id="MemberLookUpTxtF" fx:id="memberView_fullNameTxtF" promptText="Member Full Name" styleClass="TextField" stylesheets="@application.css" />
+            <Button fx:id="memberView_findMemberButton" mnemonicParsing="false" onAction="#findMember" text="Find Member" />
          </children>
       </HBox>
    </top>
+   <opaqueInsets>
+      <Insets top="10.0" />
+   </opaqueInsets>
+   <padding>
+      <Insets bottom="20.0" left="50.0" right="50.0" top="20.0" />
+   </padding>
 </BorderPane>

@@ -1,16 +1,20 @@
 package application;
 import java.util.Date;
+import java.io.Serializable;
 import java.time.*;
 
-public abstract class Person{
-
-    private String fName;
+public abstract class Person implements Serializable{
+	
+	private String fName;
     private String lName;
     private LocalDate dOB;
     private String email;
     private LocalDate startDate;
     private LocalDate endDate;
-
+    
+    public Person() {
+		
+   	}
     public Person(String fn, String ln, LocalDate dob, String email, LocalDate startDate, LocalDate endDate)
     {
         this.fName = fn;
