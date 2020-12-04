@@ -154,7 +154,7 @@ public class Main extends Application {
 			*/
 			
 
-			/******************************************** Making the Layouts (Pages) ********************************************/
+			/******************************************** Making the Layouts (Pages) and Config. ********************************************/
 
 		    
 		    /*****Initializing All the Pages*****/
@@ -171,6 +171,11 @@ public class Main extends Application {
 			BorderPane workoutClassPage = (BorderPane)FXMLLoader.load(getClass().getResource("workoutClassPage.fxml"));
 			BorderPane newClassPage = (BorderPane)FXMLLoader.load(getClass().getResource("newClassPage.fxml"));
 			
+			homePage.getStyleClass().add("GridPane");
+			newMemberPage.getStyleClass().add("GridPane");
+			newStaffPage.getStyleClass().add("GridPane");
+			newCoachPage.getStyleClass().add("GridPane");
+			staffViewPage.getStyleClass().add("GridPane");
 			
 			
 			/*****Home Page Layout Config*****/
@@ -184,9 +189,9 @@ public class Main extends Application {
 		    homePage.setAlignment(Pos.CENTER);
 		    
 		    /*****New Member Page Layout Config*****/
-			newMemberPage.setMinSize(400, 400);
+			newMemberPage.setMinSize(750, 750);
 			newMemberPage.setPadding(new Insets(10));
-		    newMemberPage.setVgap(50); 
+		    newMemberPage.setVgap(25); 
 		    newMemberPage.setHgap(50);
 		    newMemberPage.setAlignment(Pos.CENTER);
 		    
@@ -278,7 +283,7 @@ public class Main extends Application {
 		    /********************************************************************** Handling Events **********************************************************************/
 		    
 		    /*
-		     * Set an setOnMouseClicked listener using Using Convenience Methods. this function is activated whenever the register button is clicked. it will create 
+		     * Set an setOnMouseClicked listener using Convenience Methods. this function is activated whenever the register button is clicked. it will create 
 		     * an object file for each member which can later be read and searched from the member view 
 		     * https://www.tutorialspoint.com/javafx/javafx_event_handling.htm
 		     */
@@ -367,7 +372,7 @@ public class Main extends Application {
 		    
 		    //Creating a scene objects where we will put our layout for each scene
 			homeScene = new Scene(homePage,1280,720);
-			newMemberScene = new Scene(newMemberPage,1280,720);
+			newMemberScene = new Scene(newMemberPage);
 			newStaffScene = new Scene(newStaffPage,1280,720);
 			
 			newCoachScene = new Scene(newCoachPage,1280,720);
@@ -398,6 +403,7 @@ public class Main extends Application {
 			 *  the e represents the handle function's parameter event
 			 *  http://www.learningaboutelectronics.com/Articles/How-to-create-multiple-scenes-and-switch-between-scenes-in-JavaFX.php 
 			 */
+			
 			newMember.setOnAction(e -> primaryStage.setScene(newMemberScene));
 			newStaff.setOnAction(e -> primaryStage.setScene(newStaffScene));
 			newClass.setOnAction(e -> primaryStage.setScene(newClassScene));
@@ -406,6 +412,7 @@ public class Main extends Application {
 			staffView.setOnAction(e -> primaryStage.setScene(staffViewScene));
 			classView.setOnAction(e -> primaryStage.setScene(workoutClassViewScene));
 			newMember_backButton.setOnAction(e -> primaryStage.setScene(homeScene));
+			((Button)memberViewScene.lookup("#memberView_goBackButton")).setOnAction(e -> primaryStage.setScene(homeScene));
 			/*
 			 * More explanation:
 			 *  
@@ -423,8 +430,13 @@ public class Main extends Application {
 		     *  but what if we want to keep this class intact? what can we do if we want to just use this method differently just once?
 		     *  well we can create a new class B that extends A and overrides that method. but this seems wasteful to create w whole new class just for this
 		     *  so instead we create an anonymous class like so
-		     *  A objA = new A(){
-		     *  	public void print(){ system.out.print("bye bye world");}
+		     *  class A{
+		     *  	public void print{
+		     *  		system.out.print("bye bye world");
+		     *  	}
+		     *  }
+		     *  A objA = new A(){                                            //don't want to say hello, so
+		     *  	public void print(){ system.out.print("bye bye world");} //I will override the method
 		     *  };
 		     *  
 		     *  this is equivalent to creating a new class B that extends A and overrides the print method then creating a B object (except its much shorter and you dont create a whole new class):
@@ -433,12 +445,14 @@ public class Main extends Application {
 		     *  }
 		     *  B objA = new B();
 		     *  
-		     *  now lambda makes our lives even easier by allowing us to do a similar procedure for anonymous implementation of interfaces but very quickly:
+		     *  now lambda makes our lives even easier by allowing us to do a similar procedure for anonymous implementation very quickly:
 		     *  
 		     *   A interfaceA = () -> {System.out.print("bye bye world")};
 		     *   
 		     *   https://www.youtube.com/watch?v=lIXs4Y8sJCk
 		     *   https://www.youtube.com/watch?v=V7yVbG9_xkM
+		     *   
+		     *   This only works when there is one method to override. An interface only has one method which means that it is a functional interface.
 		     *   
 		     *  
 		     * 

@@ -2,6 +2,7 @@
 
 <?import javafx.geometry.Insets?>
 <?import javafx.scene.control.Button?>
+<?import javafx.scene.control.DatePicker?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.TextField?>
 <?import javafx.scene.layout.BorderPane?>
@@ -10,13 +11,13 @@
 <?import javafx.scene.layout.HBox?>
 <?import javafx.scene.layout.RowConstraints?>
 
-
-<BorderPane xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/11.0.1" fx:controller="application.SampleController">
+<BorderPane prefHeight="557.0" prefWidth="676.0" style="-fx-background-color: beige;" stylesheets="@application.css" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="application.SampleController">
    <center>
       <GridPane alignment="CENTER" hgap="15.0" styleClass="GridPane" stylesheets="@application.css" vgap="15.0" BorderPane.alignment="CENTER">
         <columnConstraints>
           <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
           <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+            <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
             <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
         </columnConstraints>
         <rowConstraints>
@@ -28,43 +29,57 @@
             <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
             <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
             <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+            <RowConstraints />
         </rowConstraints>
          <padding>
             <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
          </padding>
          <children>
             <Label styleClass="Text" stylesheets="@application.css" text="First Name: " />
-            <Label styleClass="Text" stylesheets="@application.css" text="DOB:" GridPane.rowIndex="2" />
-            <Label styleClass="Text" stylesheets="@application.css" text="End Date:" GridPane.rowIndex="4" />
-            <Label styleClass="Text" stylesheets="@application.css" text="Member Since:" GridPane.rowIndex="3" />
             <Label styleClass="Text" stylesheets="@application.css" text="Last Name:" GridPane.rowIndex="1" />
+            <Label styleClass="Text" stylesheets="@application.css" text="DOB:" GridPane.rowIndex="2" />
+            <Label styleClass="Text" stylesheets="@application.css" text="Member Since:" GridPane.rowIndex="3" />
+            <Label styleClass="Text" stylesheets="@application.css" text="End Date:" GridPane.rowIndex="4" />
             <Label styleClass="Text" stylesheets="@application.css" text="Months:" GridPane.rowIndex="5" />
             <Label styleClass="Text" stylesheets="@application.css" text="Monthly Fees:" GridPane.rowIndex="6" />
             <Label styleClass="Text" stylesheets="@application.css" text="Type:" GridPane.rowIndex="7" />
+            <Label styleClass="Text" stylesheets="@application.css" text="Email:" GridPane.rowIndex="8" />
             <Label fx:id="memberView_memberFnText" styleClass="Text" stylesheets="@application.css" GridPane.columnIndex="1" />
             <Label fx:id="memberView_memberLnText" styleClass="Text" stylesheets="@application.css" GridPane.columnIndex="1" GridPane.rowIndex="1" />
             <Label fx:id="memberView_memberDobText" styleClass="Text" stylesheets="@application.css" GridPane.columnIndex="1" GridPane.rowIndex="2" />
             <Label fx:id="memberView_memberSDText" styleClass="Text" stylesheets="@application.css" GridPane.columnIndex="1" GridPane.rowIndex="3" />
-            <Label fx:id="memberView_memberTypeText" styleClass="Text" stylesheets="@application.css" GridPane.columnIndex="1" GridPane.rowIndex="7" />
-            <Label fx:id="memberView_memberFeesText" styleClass="Text" stylesheets="@application.css" GridPane.columnIndex="1" GridPane.rowIndex="6" />
-            <Label fx:id="memberView_membermonthsText" styleClass="Text" stylesheets="@application.css" GridPane.columnIndex="1" GridPane.rowIndex="5" />
             <Label fx:id="memberView_memberEDText" styleClass="Text" stylesheets="@application.css" GridPane.columnIndex="1" GridPane.rowIndex="4" />
-            <TextField GridPane.columnIndex="2" />
-            <TextField GridPane.columnIndex="2" GridPane.rowIndex="1" />
-            <TextField GridPane.columnIndex="2" GridPane.rowIndex="2" />
-            <TextField GridPane.columnIndex="2" GridPane.rowIndex="3" />
-            <TextField GridPane.columnIndex="2" GridPane.rowIndex="4" />
-            <TextField GridPane.columnIndex="2" GridPane.rowIndex="5" />
-            <TextField GridPane.columnIndex="2" GridPane.rowIndex="6" />
-            <TextField GridPane.columnIndex="2" GridPane.rowIndex="7" />
+            <Label fx:id="memberView_memberMonthsText" styleClass="Text" stylesheets="@application.css" GridPane.columnIndex="1" GridPane.rowIndex="5" />
+            <Label fx:id="memberView_memberFeesText" styleClass="Text" stylesheets="@application.css" GridPane.columnIndex="1" GridPane.rowIndex="6" />
+            <Label fx:id="memberView_memberTypeText" styleClass="Text" stylesheets="@application.css" GridPane.columnIndex="1" GridPane.rowIndex="7" />
+            <Label fx:id="memberView_memberEmailText" styleClass="Text" stylesheets="@application.css" GridPane.columnIndex="1" GridPane.rowIndex="8" />
+            <TextField fx:id="memberView_setFnTxtF" GridPane.columnIndex="2" />
+            <TextField fx:id="memberView_setLnTxtF" GridPane.columnIndex="2" GridPane.rowIndex="1" />
+            <DatePicker fx:id="memberView_setDobTxtF" GridPane.columnIndex="2" GridPane.rowIndex="2" />
+            <DatePicker fx:id="memberView_setSDTxtF" GridPane.columnIndex="2" GridPane.rowIndex="3" />
+            <DatePicker fx:id="memberView_setEDTxtF" GridPane.columnIndex="2" GridPane.rowIndex="4" />
+            <TextField fx:id="memberView_setMonthsTxtF" GridPane.columnIndex="2" GridPane.rowIndex="5" />
+            <TextField fx:id="memberView_setFeesTxtF" GridPane.columnIndex="2" GridPane.rowIndex="6" />
+            <TextField fx:id="memberView_setTypeTxtF" GridPane.columnIndex="2" GridPane.rowIndex="7" />
+            <TextField fx:id="memberView_setEmailTxtF" GridPane.columnIndex="2" GridPane.rowIndex="8" />
+            <Button fx:id="memberView_setFnButton" mnemonicParsing="false" onAction="#setfName" stylesheets="@application.css" text="Set First Name" GridPane.columnIndex="3" />
+            <Button fx:id="memberView_setLnButton" mnemonicParsing="false" onAction="#setlName" stylesheets="@application.css" text="Set Last Name" GridPane.columnIndex="3" GridPane.rowIndex="1" />
+            <Button fx:id="memberView_setDobButton" mnemonicParsing="false" onAction="#setdOB" stylesheets="@application.css" text="Set DOB" GridPane.columnIndex="3" GridPane.rowIndex="2" />
+            <Button fx:id="memberView_setSDButton" mnemonicParsing="false" onAction="#setStartDate" stylesheets="@application.css" text="Set Start Date" GridPane.columnIndex="3" GridPane.rowIndex="3" />
+            <Button fx:id="memberView_setEDButton" mnemonicParsing="false" onAction="#setEndDate" stylesheets="@application.css" text="Set End Date" GridPane.columnIndex="3" GridPane.rowIndex="4" />
+            <Button fx:id="memberView_setMonthsButton" mnemonicParsing="false" onAction="#setMonth" stylesheets="@application.css" text="Set Months" GridPane.columnIndex="3" GridPane.rowIndex="5" />
+            <Button fx:id="memberView_setFeesButton" mnemonicParsing="false" onAction="#setFees" stylesheets="@application.css" text="Set Fees" GridPane.columnIndex="3" GridPane.rowIndex="6" />
+            <Button fx:id="memberView_setTypeButton" mnemonicParsing="false" onAction="#setType" stylesheets="@application.css" text="Set Type" GridPane.columnIndex="3" GridPane.rowIndex="7" />
+            <Button fx:id="memberView_setEmailButton" mnemonicParsing="false" onAction="#setEmail" stylesheets="@application.css" text="Set Email" GridPane.columnIndex="3" GridPane.rowIndex="8" />
+            
          </children>
       </GridPane>
    </center>
    <top>
-      <HBox alignment="CENTER" prefHeight="100.0" prefWidth="380.0" spacing="40.0" BorderPane.alignment="CENTER">
+      <HBox alignment="CENTER" prefHeight="100.0" style="-fx-background-color: biege;" prefWidth="380.0" spacing="40.0" BorderPane.alignment="CENTER">
          <children>
             <TextField id="MemberLookUpTxtF" fx:id="memberView_fullNameTxtF" promptText="Member Full Name" styleClass="TextField" stylesheets="@application.css" />
-            <Button fx:id="memberView_findMemberButton" mnemonicParsing="false" onAction="#findMember" text="Find Member" />
+            <Button fx:id="memberView_findMemberButton" mnemonicParsing="false" onAction="#findMember" stylesheets="@application.css" text="Find Member" />
          </children>
       </HBox>
    </top>
@@ -74,4 +89,15 @@
    <padding>
       <Insets bottom="20.0" left="50.0" right="50.0" top="20.0" />
    </padding>
+   <bottom>
+      <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0" spacing="250.0" style="-fx-background-color: beige;" stylesheets="@application.css" BorderPane.alignment="CENTER">
+         <children>
+            <Button fx:id="memberView_goBackButton" Style="-fx-background-color: Red;" mnemonicParsing="false" text="Go Back" />
+            <Button fx:id="memberView_saveChangeButton" mnemonicParsing="false" onAction="#memberView_saveChangeButton" stylesheets="@application.css" text="Save Changes" />
+         </children>
+         <BorderPane.margin>
+            <Insets />
+         </BorderPane.margin>
+      </HBox>
+   </bottom>
 </BorderPane>
