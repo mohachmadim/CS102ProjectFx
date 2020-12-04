@@ -346,7 +346,7 @@ public class Main extends Application {
 		                  */
 		                 
 		        	 } catch (InvalidDateException e) {
-		                 System.out.println(e.getMessage());
+		                 System.out.println(e.getMessage()); // to do create an alert
 		        	 } catch (InvalidEmailException e) {
 		                 System.out.println(e.getMessage());
 		        	 } catch (EmptyStringException e) {
