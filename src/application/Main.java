@@ -1,11 +1,13 @@
 package application;
 
+import java.io.BufferedReader;
 import java.io.File;
 import java.io.FileInputStream;
 import java.io.FileOutputStream;
 import java.io.ObjectOutputStream;
 import java.io.FileNotFoundException;
 import java.io.IOException;
+import java.io.InputStreamReader;
 import java.io.ObjectInputStream;
 import java.io.ObjectOutputStream;
 import java.time.LocalDate;
@@ -477,15 +479,19 @@ public class Main extends Application {
 	
 	public static void main(String[] args) {
 		
+		
 		launch(args);
 		
+		BufferedReader input = new BufferedReader( new InputStreamReader (System.in));
 		LocalDate Date1 = LocalDate.parse("2019-12-31");//this is how you create a local date
 		WorkoutClass[] aliGClasses = new WorkoutClass[3]; 
+		
 		/*
 		 * each coach can have a max of 3 classes? we must instantiate this variable before making
 		 * the coach and we cannot fill it until we make the workout class but we cant make the workout 
 		 * class until we make the coach... it's a chicken and egg problem
 		*/
+		
 		Coach aliG = new Coach("Ali", "G", LocalDate.parse("2095-12-31"), "alig@gmail.com", LocalDate.parse("2019-12-31"), LocalDate.parse("2020-12-31"), "yoga instructor", 500.0, aliGClasses);
 		
 		int monday[]= {0,1};
@@ -496,22 +502,66 @@ public class Main extends Application {
 
 		
 		WorkoutClass yogaClass = new WorkoutClass(yogaSchedIndex, "Biceb Workout","Get dem guns",LocalDate.parse("2019-12-31"), LocalDate.parse("2020-06-20"),aliG);
-		WorkoutClass[] M1Classes = new WorkoutClass[10];
+		
+		//WorkoutClass M1Classes = new WorkoutClass();
 		WeeklyCalender M1Schedule = new WeeklyCalender(new boolean[7][72]);
 		
-		Member M1 = new Member("John", "Smith", LocalDate.parse("2019-12-31"), "johnSmith@email.com", LocalDate.parse("2019-12-31"), LocalDate.parse("2019-12-31"), 0, 3);		
-		Member M2 = new Member("John", "Smith", LocalDate.parse("2019-12-31"), "johnSmith@email.com", LocalDate.parse("2019-12-31"), LocalDate.parse("2019-12-31"), 0, 3);
-		Member M3 = new Member("John", "Smith", LocalDate.parse("2019-12-31"), "johnSmith@email.com", LocalDate.parse("2019-12-31"), LocalDate.parse("2019-12-31"), 0, 3);
+		//Member M1 = new Member("John", "Smith", LocalDate.parse("2019-12-31"), "johnSmith@email.com", LocalDate.parse("2019-12-31"), LocalDate.parse("2019-12-31"), 0, 3);		
+		//Member M2 = new Member("John", "Smith", LocalDate.parse("2019-12-31"), "johnSmith@email.com", LocalDate.parse("2019-12-31"), LocalDate.parse("2019-12-31"), 0, 3);
+		//Member M3 = new Member("John", "Smith", LocalDate.parse("2019-12-31"), "johnSmith@email.com", LocalDate.parse("2019-12-31"), LocalDate.parse("2019-12-31"), 0, 3);
 		
 		
-		/*
-		 *  //to do
-		 *  test all the methods of member 
-		 *  create data system and GUI (swift or simple textIO/BufferReader) in main
-		 *  	methods to create and update members/staff/classes from user input and save the data in text files
-		 *  add the personal trainer class if time allows
-		 */
-		
+		try {
+			System.out.println("Please enter number: ");
+			String s = input.readLine();
+			int z = Integer.parseInt(s);
+			
+			
+			
+			Member M1 = new Member("Sheikh", "Zubeir", LocalDate.parse("2019-12-31"), "Hatemhuweidi@email.com", LocalDate.parse("2019-12-31"), LocalDate.parse("2019-12-31"), 0, z);	
+			
+			System.out.println("Please enter number: ");
+			String t = input.readLine();
+			int x = Integer.parseInt(t);
+			
+			Member M2 = new Member("Ghaith", "Marquees", LocalDate.parse("2018-05-11"), "BruhMarquees@email.com", LocalDate.parse("2018-08-11"), 1, x);
+			
+			System.out.println("Please enter number: ");
+			String y = input.readLine();
+			int g = Integer.parseInt(y);
+			
+			Member M3 = new Member("Rayan", "Saeed", LocalDate.parse("2019-12-31"), "RayanSaeed@email.com", 0, g);
+			
+			yogaClass.courseMembers.add(M1);
+			yogaClass.courseMembers.add(M2);
+			yogaClass.courseMembers.add(M3);
+			
+			System.out.println(yogaClass.courseMembers);
+			
+			yogaClass.courseMembers.clear();
+			
+			System.out.println(yogaClass.courseMembers);
+			
+			System.out.println(M1.calculateFees(0, 3));
+			
+			System.out.println(M1.getFee());
+			
+			M1.setFees(600);
+			
+			System.out.println(M1.getFee());
+			
+			System.out.println(M1.getType());
+			
+			M1.setType(1);
+			
+			System.out.println(M1.getType());
+		}
+		catch(IOException z)
+		{
+			System.err.println("Wrong Input" + z.getMessage());
+		}
+		finally {}
+
 		
 		/*
 		 * http://www.groupkt.com/post/2f40241c/java---how-to-create-and-initialize-a-list-arraylist-in-efficient-way.htm 

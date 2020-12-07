@@ -17,7 +17,7 @@ public class Member extends Person implements Serializable{
 	public static double sixMonthRate = 90;
 	public static double yearlyRate = 80;
 	public static double studentDiscount = 0.9;// for now.(10%)
-	public double discount=0;
+	public double discount=0; //seasonal discounts applied manually
 	//public WorkoutClass[] registeredClasses = new ;
 	public int months;
 	//public WeeklyCalender memberSchedule;
